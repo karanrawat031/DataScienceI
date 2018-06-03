@@ -1,0 +1,17 @@
+# importing can be done by two types 
+import numpy as np  -----> importing the whole library
+import pandas as pd
+from sklearn import ensemble,metrics  -----> importing parts of a library, metrics used for score function and performance calculation
+from sklearn.model_selection import train_test_split  -----> used to split data for test and train
+
+# reading from files
+data = pd.read_csv('stock_data.csv', sep=',')  -----> reading from csv
+
+# certain manipulation commands
+data.head()  -----> often used to read from data in notebook(gives first five columns)
+data.describe()  -----> simply describes the data in hand, tells us about the general characteristics of the data
+y = data[['Y']]  -----> used to select one column from the data
+X = data.drop('Y', axis=1)  -----> used to select all the columns except one
+X = data.drop(['a', 'b'], axis=1)  -----> used to drop more than one column
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.3,random_state=4)  -----> creating test and train data
+ 
